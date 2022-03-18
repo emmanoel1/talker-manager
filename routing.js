@@ -2,8 +2,10 @@ const express = require('express');
 
 const router = express.Router();
 
-const functions = require('./routesHandlers/functions');
+const {
+    talker,
+} = require('./routesHandlers/functions');
 
-router.get('/talker', functions.talker);
+router.get('/talker', talker);
 
 module.exports = router;

@@ -17,3 +17,5 @@ app.get('/', (_request, response) => {
 app.listen(PORT, () => {
   console.log('Online');
 });
+
+module.exports = HTTP_OK_STATUS;
