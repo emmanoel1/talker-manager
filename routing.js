@@ -2,10 +2,10 @@ const express = require('express');
 
 const router = express.Router();
 
-const { talker } = require('./routesHandlers/talker');
-const { talkerId } = require('./routesHandlers/talkerId');
-const { talkerLogin } = require('./routesHandlers/login');
-// const { postTalker } = require('./routesHandlers/postTalker');
+const { talker } = require('./endpointHandlers/talker');
+const { talkerId } = require('./endpointHandlers/talkerId');
+const { talkerLogin } = require('./endpointHandlers/login');
+// const { postTalker } = require('./endpointHandlers/postTalker');
 
 router.get('/talker', talker);
 
