@@ -5,7 +5,7 @@ const router = express.Router();
 const {
     talker,
     talkerId,
-} = require('./routesHandlers/functions');
+} = require('./routesHandlers/handlers');
 
 const { talkerLogin } = require('./routesHandlers/loginHandler');
 
