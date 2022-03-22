@@ -4,7 +4,7 @@ const router = express.Router();
 
 const { talker } = require('./routesHandlers/talker');
 const { talkerId } = require('./routesHandlers/talkerId');
-const { talkerLogin } = require('./routesHandlers/loginHandler');
+const { talkerLogin } = require('./routesHandlers/login');
 // const { postTalker } = require('./routesHandlers/postTalker');
 
 router.get('/talker', talker);
