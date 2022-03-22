@@ -8,7 +8,7 @@ async function talker(_req, res) {
 async function talkerId(req, res) {
   const talkersList = await readFileSvc('./talker.json');
   const { id } = req.params;
-  const talkersListFiltered = talkersList.find((talkers) => talkers.id === parseInt(id, 5));
+  const talkersListFiltered = talkersList.find((talkers) => talkers.id === Number(id));
 
   if (talkersListFiltered !== undefined) return res.json(talkersListFiltered);
   const errMessage = { message: 'Pessoa palestrante não encontrada' };
