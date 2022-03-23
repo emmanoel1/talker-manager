@@ -6,6 +6,4 @@ async function talker(_req, res) {
   res.json(talkersList);
 }
 
-module.exports = {
-    talker,
-};
+module.exports = talker;

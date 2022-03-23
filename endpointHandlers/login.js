@@ -19,6 +19,4 @@ function talkerLogin(req, res) {
   return res.json({ token: tokenGenerator() });
 }
 
-module.exports = {
-  talkerLogin,
-};
+module.exports = talkerLogin;

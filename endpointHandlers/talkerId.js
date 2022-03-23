@@ -14,6 +14,4 @@ async function talkerId(req, res) {
   if (!talkersListFiltered) return res.status(404).json(errMessage);
 }
 
-module.exports = {
-  talkerId,
-};
+module.exports = talkerId;
