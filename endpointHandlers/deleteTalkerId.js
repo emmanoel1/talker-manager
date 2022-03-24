@@ -10,7 +10,7 @@ function deleteTalkerId(req, res) {
 
     fs.writeFileSync('talker.json', JSON.stringify(search));
 
-    return res.status(204).end();
+    return res.status(204).json();
 }
 
 module.exports = deleteTalkerId;
