@@ -4,7 +4,7 @@ const router = express.Router();
 
 const fs = require('fs');
 
-const readFileSyncSvc = require('./services/readFileSyncSvc');
+// const readFileSyncSvc = require('./services/readFileSyncSvc');
 
 const talker = require('./endpointHandlers/talker');
 const talkerId = require('./endpointHandlers/talkerId');
@@ -44,33 +44,33 @@ router.post('/talker', talkerAuth, talkerName, talkerAge, talkerData, async (req
     return res.status(201).json(response);
 });
 
-router.put('/talker/:id', talkerAuth, talkerName, talkerAge, talkerData, (req, res) => {
-    const { id } = req.params;
-    const { name, age, talk } = req.body;
+// router.put('/talker/:id', talkerAuth, talkerName, talkerAge, talkerData, (req, res) => {
+//     const { id } = req.params;
+//     const { name, age, talk } = req.body;
 
-    const readed = readFileSyncSvc(dataLocation);
+//     const readed = readFileSyncSvc(dataLocation);
 
-    const itemReadIndex = readed.findIndex((item) => item.id === Number(id));
+//     const itemReadIndex = readed.findIndex((item) => item.id === Number(id));
 
-    readed[itemReadIndex] = { name, age, id: Number(id), talk };
+//     readed[itemReadIndex] = { name, age, id: Number(id), talk };
 
-    fs.writeFileSync(dataLocation, JSON.stringify(readed));
+//     fs.writeFileSync(dataLocation, JSON.stringify(readed));
 
-    const response = { name, age, id: Number(id), talk };
+//     const response = { name, age, id: Number(id), talk };
 
-    return res.json(response);
-});
+//     return res.json(response);
+// });
 
-router.delete('/talker/:id', talkerAuth, (req, res) => {
-    const { id } = req.params;
+// router.delete('/talker/:id', talkerAuth, (req, res) => {
+//     const { id } = req.params;
 
-    const readed = readFileSyncSvc(dataLocation);
+//     const readed = readFileSyncSvc(dataLocation);
 
-    const search = readed.filter((talk) => talk.id === id);
+//     const search = readed.filter((talk) => talk.id === id);
 
-    fs.writeFileSync(dataLocation, JSON.stringify(search));
+//     fs.writeFileSync(dataLocation, JSON.stringify(search));
 
-    return res.status(204).json();
-});
+//     return res.status(204).json();
+// });
 
 module.exports = router;
