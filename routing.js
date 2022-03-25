@@ -28,13 +28,10 @@ router.get('/talker/:id', talkerId);
 
 router.post('/login', talkerLogin);
 
-router.post('/talker', talkerAuth, talkerName, talkerAge, talkerData, (req, res) => {
+router.post('/talker', talkerAuth, talkerName, talkerAge, talkerData, async (req, res) => {
     const { name, age, talk, watchedAt, rate } = req.body;
 
-    const readFile = async () => {
-        const result = await readFileSvc(dataLocation);
-        return result;
-    };
+      const readFile = await readFileSvc(dataLocation);
 
     readFile.push({ id: readFile.length + 1, name, age, talk, watchedAt, rate });
 
