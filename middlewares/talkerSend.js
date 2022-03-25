@@ -1,10 +1,10 @@
 const fs = require('fs');
-const readFileSvc = require('../services/readFileSvc');
+const readFileSyncSvc = require('../services/readFileSvc');
 
-async function talkerSend(req, res) {
+function talkerSend(req, res) {
     const { name, age, talk, watchedAt, rate } = req.body;
 
-    const readFile = await readFileSvc('talker.json');
+    const readFile = readFileSyncSvc('talker.json');
 
     readFile.push({ id: readFile.length + 1, name, age, talk, watchedAt, rate });
 
