@@ -4,8 +4,6 @@ const router = express.Router();
 
 const fs = require('fs');
 
-// const readFileSyncSvc = require('./services/readFileSyncSvc');
-
 const talker = require('./endpointHandlers/talker');
 const talkerId = require('./endpointHandlers/talkerId');
 const talkerLogin = require('./endpointHandlers/login');
@@ -14,7 +12,8 @@ const talkerAuth = require('./middlewares/talkerAuth');
 const talkerName = require('./middlewares/talkerName');
 const talkerAge = require('./middlewares/talkerAge');
 const talkerData = require('./middlewares/talkerData');
-const readFileSvc = require('./services/readFileSvc');
+// const readFileSvc = require('./services/readFileSvc');
+const readFileSyncSvc = require('./services/readFileSyncSvc');
 
 const dataLocation = 'talker.json';
 // const talkerSend = require('./middlewares/talkerSend');
@@ -28,10 +27,10 @@ router.get('/talker/:id', talkerId);
 
 router.post('/login', talkerLogin);
 
-router.post('/talker', talkerAuth, talkerName, talkerAge, talkerData, async (req, res) => {
+router.post('/talker', talkerAuth, talkerName, talkerAge, talkerData, (req, res) => {
     const { name, age, talk, watchedAt, rate } = req.body;
 
-      const readFile = await readFileSvc(dataLocation);
+      const readFile = readFileSyncSvc(dataLocation);
 
     readFile.push({ id: readFile.length + 1, name, age, talk, watchedAt, rate });
 
