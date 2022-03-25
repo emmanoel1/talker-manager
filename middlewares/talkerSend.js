@@ -1,5 +1,5 @@
 const fs = require('fs');
-const readFileSyncSvc = require('../services/readFileSvc');
+const readFileSyncSvc = require('../services/readFileSyncSvc');
 
 function talkerSend(req, res) {
     const { name, age, talk, watchedAt, rate } = req.body;
