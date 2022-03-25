@@ -13,7 +13,7 @@ const talkerData = require('./middlewares/talkerData');
 // const talkerSend = require('./middlewares/talkerSend');
 
 const putTalkerId = require('./endpointHandlers/putTalkerId');
-const deleteTalkerId = require('./endpointHandlers/deleteTalkerId');
+// const deleteTalkerId = require('./endpointHandlers/deleteTalkerId');
 
 router.get('/talker', talker);
 
@@ -25,6 +25,6 @@ router.post('/login', talkerLogin);
 
 router.put('/talker/:id', talkerAuth, talkerName, talkerAge, talkerData, putTalkerId);
 
-router.delete('/talker/:id', talkerAuth, deleteTalkerId);
+// router.delete('/talker/:id', talkerAuth, deleteTalkerId);
 
 module.exports = router;
